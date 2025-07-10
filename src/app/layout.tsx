@@ -5,13 +5,13 @@ import { Header } from "@/components/header";
 import localFont from "next/font/local";
 
 const montreal = localFont({
-  src: [{ path: "../../public/montreal.woff2", weight: "400" }],
+  src: [{ path: "../../public/montreal.woff2" }],
   variable: "--font-montreal",
 });
 
 export const metadata: Metadata = {
-  title: "Dox App",
-  description: "A modern document management application",
+  title: "mcomponents",
+  description: "A modern component library",
 };
 
 export default function RootLayout({

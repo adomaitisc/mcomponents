@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   Sidebar,
   SidebarContent,
@@ -15,51 +17,50 @@ import {
 const gettingStartedRoutes = [
   {
     label: "Introduction",
-    href: "/",
+    href: "/introduction",
   },
   {
     label: "Motivation",
-    href: "/",
+    href: "/motivation",
   },
-
   {
     label: "Usage",
-    href: "/",
+    href: "/usage",
   },
   {
     label: "References",
-    href: "/",
+    href: "/references",
   },
 ];
 
 const componentRoutes = [
   {
     label: "Bottom Sheet",
-    href: "/",
+    href: "/bottom-sheet",
   },
   {
     label: "Bottom Tabs",
-    href: "/",
+    href: "/bottom-tabs",
   },
   {
     label: "Button",
-    href: "/",
+    href: "/button",
   },
   {
     label: "Card",
-    href: "/",
+    href: "/card",
   },
   {
     label: "Carousel",
-    href: "/",
+    href: "/carousel",
   },
   {
     label: "Dropdown",
-    href: "/",
+    href: "/dropdown",
   },
   {
     label: "Toast",
-    href: "/",
+    href: "/toast",
   },
 ];
 
@@ -68,6 +69,8 @@ const slugify = (text: string) => {
 };
 
 export function SidebarLayout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+
   return (
     <SidebarProvider>
       <Sidebar className="bg-white border-none px-2">
@@ -77,8 +80,13 @@ export function SidebarLayout({ children }: { children: React.ReactNode }) {
               <SidebarMenu>
                 {gettingStartedRoutes.map((route) => (
                   <SidebarMenuItem key={slugify(route.label)}>
-                    <SidebarMenuButton>
-                      <span className="font-semibold">{route.label}</span>
+                    <SidebarMenuButton
+                      asChild
+                      isActive={pathname === route.href}
+                    >
+                      <Link href={route.href}>
+                        <span className="font-semibold">{route.label}</span>
+                      </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}
@@ -90,8 +98,13 @@ export function SidebarLayout({ children }: { children: React.ReactNode }) {
               <SidebarMenu>
                 {componentRoutes.map((route) => (
                   <SidebarMenuItem key={slugify(route.label)}>
-                    <SidebarMenuButton>
-                      <span className="font-semibold">{route.label}</span>
+                    <SidebarMenuButton
+                      asChild
+                      isActive={pathname === route.href}
+                    >
+                      <Link href={route.href}>
+                        <span className="font-semibold">{route.label}</span>
+                      </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}
@@ -99,22 +112,9 @@ export function SidebarLayout({ children }: { children: React.ReactNode }) {
             </SidebarGroupContent>
           </SidebarGroup>
         </SidebarContent>
-        {/* <SidebarFooter>
-          <div className="flex h-14 items-center gap-2 px-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sidebar-accent text-sidebar-accent-foreground">
-              <span className="text-xs font-semibold">m</span>
-            </div>
-            <div className="flex flex-col gap-0.5">
-              <p className="text-xs font-medium leading-none">mcomponents</p>
-              <p className="text-xs leading-none text-sidebar-muted-foreground">
-                v1.0.0-beta.1
-              </p>
-            </div>
-          </div>
-        </SidebarFooter> */}
       </Sidebar>
       <SidebarInset>
-        <main className="flex flex-col gap-4 p-4 pt-0">{children}</main>
+        <main className="flex flex-col gap-4 p-4 py-32">{children}</main>
       </SidebarInset>
     </SidebarProvider>
   );
