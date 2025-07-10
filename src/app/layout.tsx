@@ -2,12 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { SidebarLayout } from "@/components/sidebar-layout";
 import { Header } from "@/components/header";
-import localFont from "next/font/local";
-
-const montreal = localFont({
-  src: [{ path: "../../public/montreal.woff2" }],
-  variable: "--font-montreal",
-});
+import { GeistMono } from "geist/font/mono";
 
 export const metadata: Metadata = {
   title: "mcomponents",
@@ -21,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${montreal.variable} font-sans antialiased`}>
+      <body className={`${GeistMono.variable} font-sans antialiased`}>
         <SidebarLayout>
           <Header />
           {children}
