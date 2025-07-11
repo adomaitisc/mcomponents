@@ -4,14 +4,7 @@ import { Title } from "@/components/title";
 
 export default function CardPage() {
   return (
-    <Sandbox
-      component={
-        <iframe
-          className="w-full h-full relative grid place-items-center"
-          src="https://mcomponents.vercel.app/button"
-        />
-      }
-    >
+    <Sandbox component={<></>}>
       <Title
         links={[
           {

@@ -1,4 +1,4 @@
-import { Phone } from "./ui/phone";
+import { Phone } from "./iphone/phone";
 
 export function Sandbox({
   children,
