@@ -13,6 +13,7 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from "@/components/ui/sidebar";
+import { slugify } from "@/lib/utils";
 
 const gettingStartedRoutes = [
   {
@@ -59,21 +60,28 @@ const componentRoutes = [
     href: "/dropdown",
   },
   {
+    label: "Shared Dialog",
+    href: "/shared-dialog",
+  },
+  {
     label: "Toast",
     href: "/toast",
   },
 ];
 
-const slugify = (text: string) => {
-  return text.toLowerCase().replace(/ /g, "-");
-};
+const externalRoutes = [
+  {
+    label: "GitHub",
+    href: "https://github.com/adomaitisc/mcomponents",
+  },
+];
 
 export function SidebarLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
 
   return (
     <SidebarProvider>
-      <Sidebar className="bg-white border-none px-2">
+      <Sidebar className="bg-white border-none pl-6">
         <SidebarContent className="h-full justify-center border-none">
           <SidebarGroup>
             <SidebarGroupContent>
@@ -111,10 +119,32 @@ export function SidebarLayout({ children }: { children: React.ReactNode }) {
               </SidebarMenu>
             </SidebarGroupContent>
           </SidebarGroup>
+          <SidebarGroup>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                {externalRoutes.map((route) => (
+                  <SidebarMenuItem key={slugify(route.label)}>
+                    <SidebarMenuButton
+                      asChild
+                      isActive={pathname === route.href}
+                    >
+                      <Link
+                        href={route.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <span className="font-semibold">{route.label}</span>
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
         </SidebarContent>
       </Sidebar>
       <SidebarInset>
-        <main className="flex flex-col gap-4 p-4 py-32">{children}</main>
+        <main className="w-screen overflow-x-hidden">{children}</main>
       </SidebarInset>
     </SidebarProvider>
   );
