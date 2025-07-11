@@ -41,7 +41,7 @@ export function Phone({
           height={40}
           className="absolute bottom-0 left-0 pointer-events-none z-10"
         />
-        {children}
+        <div className="absolute inset-0 bg-white pt-12 pb-10">{children}</div>
       </div>
     </motion.div>
   );
