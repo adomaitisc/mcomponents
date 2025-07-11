@@ -12,7 +12,7 @@ export function Phone({
     <div className="w-[310px] relative h-[674px]">
       <div
         className={cn(
-          "absolute inset-0 overflow-hidden [mask-image:url(/frame.svg)] shadow-2xl",
+          "absolute inset-0 overflow-hidden [mask-image:url(/frame.svg)]",
           theme === "light" ? "bg-neutral-100" : "bg-neutral-800"
         )}
       >
