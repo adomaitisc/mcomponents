@@ -15,7 +15,7 @@ export function Sandbox({
         {children}
       </div>
       {component ? (
-        <div className="h-screen pr-8 pl-20 min-w-xl grid place-items-center bg-neutral-500">
+        <div className="h-screen pr-8 pl-20 min-w-xl grid place-items-center bg-neutral-700">
           <Phone theme={theme}>{component}</Phone>
         </div>
       ) : null}
