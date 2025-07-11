@@ -1,4 +1,7 @@
+"use client";
+
 import { cn } from "@/lib/utils";
+import { motion } from "motion/react";
 import Image from "next/image";
 
 export function Phone({
@@ -9,7 +12,15 @@ export function Phone({
   theme?: "light" | "dark";
 }) {
   return (
-    <div className="w-[310px] relative h-[674px]">
+    <motion.div
+      initial={{ opacity: 0, x: 100, scale: 0.8 }}
+      animate={{ opacity: 1, x: 0, scale: 1 }}
+      transition={{ type: "spring", stiffness: 160, damping: 20 }}
+      className="w-[310px] relative h-[674px]"
+    >
+      <div className="absolute inset-0 blur-lg">
+        <div className="h-full w-full [mask-image:url(/frame.svg)] bg-black/10" />
+      </div>
       <div
         className={cn(
           "absolute inset-0 overflow-hidden [mask-image:url(/frame.svg)]",
@@ -32,6 +43,6 @@ export function Phone({
         />
         {children}
       </div>
-    </div>
+    </motion.div>
   );
 }

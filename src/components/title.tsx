@@ -14,7 +14,7 @@ type TitleProps = {
 export function Title({ children, links }: TitleProps) {
   return (
     <div className="space-y-3">
-      <h1 className="text-3xl font-semibold">{children}</h1>
+      <h1 className="text-3xl lg:text-4xl font-semibold">{children}</h1>
       {links ? (
         <div className="flex items-center gap-2">
           {links.map((link) => (

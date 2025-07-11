@@ -80,7 +80,7 @@ export function SidebarLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
 
   return (
-    <SidebarProvider>
+    <SidebarProvider defaultOpen={false}>
       <Sidebar className="bg-white border-none pl-6">
         <SidebarContent className="h-full justify-center border-none">
           <SidebarGroup>
