@@ -16,7 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${GeistMono.variable} font-sans antialiased`}>
+      <body
+        className={`${GeistMono.variable} font-sans antialiased overflow-x-hidden`}
+      >
         <SidebarLayout>
           <Header />
           {children}
