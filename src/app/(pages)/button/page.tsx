@@ -1,16 +1,19 @@
 import { Paragraph } from "@/components/paragraph";
 import { Sandbox } from "@/components/sandbox";
 import { Title } from "@/components/title";
-import { Button } from "@/components/ui/button";
+import { Button } from "./button";
 
 export default function ButtonPage() {
   return (
     <Sandbox
       component={
         <div className="w-full h-full relative grid place-items-center">
-          <Button className="active:scale-90 duration-300 rounded-full shadow-lg">
-            Click me
-          </Button>
+          <Button>Add new</Button>
+          <Button variant="outline">Edit</Button>
+          <Button variant="ghost">Add new</Button>
+          <Button variant="link">Add new</Button>
+          <Button variant="secondary">Add new</Button>
+          <Button variant="destructive">Delete playlist</Button>
         </div>
       }
     >
