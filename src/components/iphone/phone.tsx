@@ -27,7 +27,7 @@ export function Phone({
       >
         <Status theme={theme} />
         <Safari theme={theme} />
-        <div className="absolute inset-0  pt-12 pb-10">{children}</div>
+        <div className="absolute inset-0 pt-12 pb-10">{children}</div>
       </div>
     </motion.div>
   );

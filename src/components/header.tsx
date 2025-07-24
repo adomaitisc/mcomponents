@@ -16,7 +16,9 @@ export function Header() {
           ) : (
             <PanelLeft strokeWidth={2.4} />
           )}
-          <span className="text-sm font-semibold">mcomponents</span>
+          <span className="text-sm font-semibold">
+            Mobile-First UI Component Library
+          </span>
         </Button>
       </div>
     </>

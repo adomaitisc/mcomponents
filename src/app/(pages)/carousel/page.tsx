@@ -29,8 +29,10 @@ export default function CarouselPage() {
 </div>`}
       </CodeSection>
       <Paragraph>
-        We plan to implement and expose a renderImage prop, so the Carousel
-        Images can be further customized, behaving in any different ways.
+        We plan to implement and expose a{" "}
+        <code className="text-base font-medium">renderImage</code> prop, so the
+        carousel images can be further customized, behaving in any different
+        ways.
       </Paragraph>
     </Sandbox>
   );
