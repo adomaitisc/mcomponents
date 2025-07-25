@@ -57,7 +57,7 @@ const componentRoutes = [
   },
   {
     label: "Dropdown",
-    href: "/dropdown",
+    href: "/dropdown-menu",
   },
   {
     label: "Shared Dialog",
