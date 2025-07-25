@@ -8,11 +8,11 @@ export default function ButtonPage() {
     <Sandbox
       component={
         <div className="w-full h-full relative grid place-items-center">
-          <Button>Add new</Button>
-          <Button variant="outline">Edit</Button>
-          <Button variant="ghost">Add new</Button>
-          <Button variant="link">Add new</Button>
-          <Button variant="secondary">Add new</Button>
+          <Button variant="default">Add new</Button>
+          <Button variant="outline">Outline</Button>
+          <Button variant="ghost">Ghost</Button>
+          <Button variant="link">Link</Button>
+          <Button variant="secondary">Secondary</Button>
           <Button variant="destructive">Delete playlist</Button>
         </div>
       }
