@@ -75,6 +75,10 @@ const componentRoutes = [
     label: "Input",
     href: "/input",
   },
+  {
+    label: "Switch",
+    href: "/switch",
+  },
 ];
 
 const externalRoutes = [
