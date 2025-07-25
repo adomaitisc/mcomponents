@@ -67,6 +67,14 @@ const componentRoutes = [
     label: "Toast",
     href: "/toast",
   },
+  {
+    label: "Label",
+    href: "/label",
+  },
+  {
+    label: "Input",
+    href: "/input",
+  },
 ];
 
 const externalRoutes = [
