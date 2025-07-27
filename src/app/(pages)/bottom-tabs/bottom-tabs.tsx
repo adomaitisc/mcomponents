@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import React, { createContext, useContext, useState } from "react";
 import type { ReactNode } from "react";
 
@@ -43,7 +44,7 @@ interface TabProps {
 
 export const Tab: React.FC<TabProps> = ({ id, children }) => {
   const { activeTab } = useTab();
-  return activeTab === id ? <>{children}</> : null;
+  return activeTab === id ? children : null;
 };
 
 export interface TabBarProps {
@@ -58,7 +59,7 @@ export const TabBar: React.FC<TabBarProps> = ({ tabs }) => {
   const { activeTab, setActiveTab } = useTab();
 
   return (
-    <div className="fixed bottom-2 left-1/2 -translate-x-1/2 shadow-2xl bg-[#1c1c1d99] backdrop-blur-xs rounded-full border border-white/10">
+    <div className="fixed bottom-2 left-1/2 -translate-x-1/2 shadow-2xl bg-zinc-100 border-zinc-200 backdrop-blur-xs rounded-full border">
       <div className="flex justify-around gap-2 px-2 items-center min-h-12">
         {tabs.map((tab) => (
           <button
@@ -68,7 +69,7 @@ export const TabBar: React.FC<TabBarProps> = ({ tabs }) => {
               ${
                 activeTab === tab.id
                   ? "text-blue-500"
-                  : "text-zinc-300 hover:text-white"
+                  : "text-zinc-600 hover:text-white"
               }`}
           >
             {tab.icon && <div className="mb-1">{tab.icon}</div>}
@@ -84,8 +85,12 @@ export const TabBar: React.FC<TabBarProps> = ({ tabs }) => {
 
 interface TabContainerProps {
   children: ReactNode;
+  className?: string;
 }
 
-export const TabContainer: React.FC<TabContainerProps> = ({ children }) => {
-  return <div className="pb-16 h-full">{children}</div>;
+export const TabContainer: React.FC<TabContainerProps> = ({
+  children,
+  className,
+}) => {
+  return <div className={cn("pb-16", className)}>{children}</div>;
 };

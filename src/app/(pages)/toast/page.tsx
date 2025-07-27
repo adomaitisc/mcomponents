@@ -13,7 +13,9 @@ export default function CarouselPage() {
   return (
     <Sandbox>
       <Title
-        links={[{ name: "Sonner", href: "https://sonner.emilkowal.ski/" }]}
+        links={[
+          { name: "Sonner Toasts", href: "https://sonner.emilkowal.ski/" },
+        ]}
       >
         Toast
       </Title>

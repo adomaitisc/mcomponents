@@ -12,7 +12,6 @@ import {
   CardDescription,
   CardContent,
   CardFooter,
-  CardAction,
 } from "./card";
 import { Label } from "../label/label";
 import { Input } from "../input/input";
@@ -30,9 +29,6 @@ export default function CardPage() {
               <CardDescription>
                 Enter your email below to login to your account
               </CardDescription>
-              <CardAction>
-                <Button variant="link">Sign Up</Button>
-              </CardAction>
             </CardHeader>
             <CardContent>
               <form>
@@ -87,9 +83,6 @@ export default function CardPage() {
     <CardDescription>
       Enter your email below to login to your account
     </CardDescription>
-    <CardAction>
-      <Button variant="link">Sign Up</Button>
-    </CardAction>
   </CardHeader>
   <CardContent>
     <form>

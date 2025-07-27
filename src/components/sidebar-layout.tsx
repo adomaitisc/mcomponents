@@ -79,6 +79,10 @@ const componentRoutes = [
     label: "Switch",
     href: "/switch",
   },
+  {
+    label: "Slider",
+    href: "/slider",
+  },
 ];
 
 const externalRoutes = [
@@ -156,7 +160,7 @@ export function SidebarLayout({ children }: { children: React.ReactNode }) {
         </SidebarContent>
       </Sidebar>
       <SidebarInset>
-        <main className="w-screen overflow-x-hidden">{children}</main>
+        <main className="w-screen overflow-x-hidden h-full">{children}</main>
       </SidebarInset>
     </SidebarProvider>
   );

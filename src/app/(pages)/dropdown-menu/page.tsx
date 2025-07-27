@@ -60,7 +60,16 @@ export default function DropdownMenuPage() {
         </div>
       }
     >
-      <Title>Dropdown Menu</Title>
+      <Title
+        links={[
+          {
+            name: "Radix UI Dropdown",
+            href: "https://www.radix-ui.com/primitives/docs/components/dropdown-menu",
+          },
+        ]}
+      >
+        Dropdown Menu
+      </Title>
       <Paragraph>
         A fully accessible and extensible dropdown menu built with Radix UI
         primitives and styled for mobile-first usage.

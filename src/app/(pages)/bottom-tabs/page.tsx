@@ -1,12 +1,14 @@
 import { Paragraph } from "@/components/paragraph";
 import { Sandbox } from "@/components/sandbox";
 import { Title } from "@/components/title";
-import { TabBar, TabContainer, TabProvider } from "./bottom-tabs";
+import { Tab, TabBar, TabContainer, TabProvider } from "./bottom-tabs";
+import { Subtitle } from "@/components/subtitle";
+import { HomeIcon, SearchIcon, UserIcon } from "lucide-react";
 
 const tabs = [
-  { id: "home", label: "Home" },
-  { id: "search", label: "Search" },
-  { id: "profile", label: "Profile" },
+  { id: "home", label: "Home", icon: <HomeIcon className="size-5" /> },
+  { id: "search", label: "Search", icon: <SearchIcon className="size-5" /> },
+  { id: "profile", label: "Profile", icon: <UserIcon className="size-5" /> },
 ];
 
 export default function BottomTabsPage() {
@@ -16,10 +18,16 @@ export default function BottomTabsPage() {
         <div className="w-full h-full relative">
           <TabProvider>
             <TabBar tabs={tabs} />
-            <TabContainer>
-              <p>Home</p>
-              <p>Search</p>
-              <p>Profile</p>
+            <TabContainer className="grid place-items-center">
+              <Tab id="home">
+                <Subtitle>Home</Subtitle>
+              </Tab>
+              <Tab id="search">
+                <Subtitle>Search</Subtitle>
+              </Tab>
+              <Tab id="profile">
+                <Subtitle>Profile</Subtitle>
+              </Tab>
             </TabContainer>
           </TabProvider>
         </div>

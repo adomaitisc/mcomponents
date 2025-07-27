@@ -9,7 +9,7 @@ export function Header() {
 
   return (
     <>
-      <div className="flex items-center justify-between w-full lg:max-w-3xl lg:w-1/2 px-4 md:px-9 py-4 md:pt-8 fixed top-0 left-0 z-50 bg-white/20 backdrop-blur-xl ">
+      <div className="flex items-center justify-between w-full px-4 md:px-9 py-4 md:pt-8 fixed top-0 left-0 z-50 bg-gradient-to-b from-white/90 to-transparent">
         <Button variant="ghost" size="sm" onClick={toggleSidebar}>
           {open ? (
             <PanelLeftOpen strokeWidth={2.4} />
