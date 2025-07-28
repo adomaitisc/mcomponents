@@ -53,28 +53,28 @@ const componentRoutes = [
     href: "/dropdown-menu",
   },
   {
-    label: "Shared Dialog",
-    href: "/shared-dialog",
-  },
-  {
-    label: "Toast",
-    href: "/toast",
+    label: "Input",
+    href: "/input",
   },
   {
     label: "Label",
     href: "/label",
   },
   {
-    label: "Input",
-    href: "/input",
+    label: "Shared Dialog",
+    href: "/shared-dialog",
+  },
+  {
+    label: "Slider",
+    href: "/slider",
   },
   {
     label: "Switch",
     href: "/switch",
   },
   {
-    label: "Slider",
-    href: "/slider",
+    label: "Toast",
+    href: "/toast",
   },
 ];
 
