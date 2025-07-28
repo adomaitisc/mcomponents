@@ -38,8 +38,8 @@ This project is a study on mobile interfaces for the web, adapting shadcn/ui com
 1. **Clone the repository**
 
    ```bash
-   git clone <repository-url>
-   cd dox
+   git clone https://github.com/adomaitisc/mcomponents.git
+   cd mcomponents
    ```
 
 2. **Install dependencies**
