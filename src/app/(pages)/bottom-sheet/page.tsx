@@ -1,7 +1,7 @@
 import { Paragraph } from "@/components/paragraph";
 import { Sandbox } from "@/components/sandbox";
 import { Title } from "@/components/title";
-
+import { Subtitle } from "@/components/subtitle";
 import { CodeSection } from "@/components/code-section";
 import BottomSheet from "./bottom-sheet";
 import path from "path";
@@ -21,13 +21,22 @@ export default function CarouselPage() {
         Bottom Sheet
       </Title>
       <Paragraph>
-        Toast is a simple wrapper around the Sonner library, with some added
-        styles. The component stacks the given elements in a way that does not
-        diminshes the screen real estate but also brings focus to a given
-        action/consequence.
+        The Bottom Sheet component is a simple wrapper around the Vaul library,
+        providing a mobile-first bottom sheet experience. This component can be
+        used as a Dialog replacement on mobile and provides smooth animations.
       </Paragraph>
-      <BottomSheet />
+      <Subtitle>Implementation</Subtitle>
       <CodeSection>{code}</CodeSection>
+      <Subtitle>Usage</Subtitle>
+      <CodeSection>{`<BottomSheet>
+  <div className="p-4">
+    <h2 className="text-lg font-semibold">Bottom Sheet Content</h2>
+    <p className="text-sm text-gray-600 mt-2">
+      This is the content of the bottom sheet.
+    </p>
+  </div>
+</BottomSheet>`}</CodeSection>
+      <BottomSheet />
     </Sandbox>
   );
 }

@@ -1,5 +1,3 @@
-"use client";
-
 import { Paragraph } from "@/components/paragraph";
 import { Sandbox } from "@/components/sandbox";
 import { Title } from "@/components/title";

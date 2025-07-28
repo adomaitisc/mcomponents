@@ -1,9 +1,16 @@
 import { Paragraph } from "@/components/paragraph";
 import { Sandbox } from "@/components/sandbox";
 import { Title } from "@/components/title";
+import { Subtitle } from "@/components/subtitle";
+import { CodeSection } from "@/components/code-section";
 import { Button } from "@/components/ui/button";
+import path from "path";
+import fs from "fs";
 
 export default function SharedDialog() {
+  const filePath = path.join(process.cwd(), "public/raw/shared-dialog.tsx");
+  const code = fs.readFileSync(filePath, "utf-8");
+
   return (
     <Sandbox
       theme="dark"
@@ -34,6 +41,22 @@ export default function SharedDialog() {
         that triggered it, cloning the trigger and animating it to a complete
         fullscreen.
       </Paragraph>
+      <Subtitle>Implementation</Subtitle>
+      <CodeSection>{code}</CodeSection>
+      <Subtitle>Usage</Subtitle>
+      <CodeSection>{`<Dialog>
+  <DialogTrigger asChild>
+    <Button>Open Dialog</Button>
+  </DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Dialog Title</DialogTitle>
+      <DialogDescription>
+        Dialog description goes here.
+      </DialogDescription>
+    </DialogHeader>
+  </DialogContent>
+</Dialog>`}</CodeSection>
     </Sandbox>
   );
 }
