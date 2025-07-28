@@ -27,6 +27,17 @@ const gettingStartedRoutes = [
   },
 ];
 
+const demoRoutes = [
+  {
+    label: "App Demo",
+    href: "/demo/app",
+  },
+  {
+    label: "Form Demo",
+    href: "/demo/form",
+  },
+];
+
 const componentRoutes = [
   {
     label: "Bottom Sheet",
@@ -97,6 +108,25 @@ export function SidebarLayout({ children }: { children: React.ReactNode }) {
             <SidebarGroupContent>
               <SidebarMenu>
                 {gettingStartedRoutes.map((route) => (
+                  <SidebarMenuItem key={slugify(route.label)}>
+                    <SidebarMenuButton
+                      asChild
+                      onClick={() => setOpen(false)}
+                      isActive={pathname === route.href}
+                    >
+                      <Link href={route.href}>
+                        <span className="font-semibold">{route.label}</span>
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+          <SidebarGroup>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                {demoRoutes.map((route) => (
                   <SidebarMenuItem key={slugify(route.label)}>
                     <SidebarMenuButton
                       asChild
