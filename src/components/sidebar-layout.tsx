@@ -14,19 +14,12 @@ import {
   SidebarProvider,
 } from "@/components/ui/sidebar";
 import { slugify } from "@/lib/utils";
+import { useState } from "react";
 
 const gettingStartedRoutes = [
   {
     label: "Introduction",
     href: "/introduction",
-  },
-  {
-    label: "Motivation",
-    href: "/motivation",
-  },
-  {
-    label: "Usage",
-    href: "/usage",
   },
   {
     label: "References",
@@ -93,10 +86,11 @@ const externalRoutes = [
 ];
 
 export function SidebarLayout({ children }: { children: React.ReactNode }) {
+  const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
   return (
-    <SidebarProvider defaultOpen={false}>
+    <SidebarProvider open={open} onOpenChange={setOpen}>
       <Sidebar className="bg-white border-none pl-6">
         <SidebarContent className="h-full justify-center border-none">
           <SidebarGroup>
@@ -106,6 +100,7 @@ export function SidebarLayout({ children }: { children: React.ReactNode }) {
                   <SidebarMenuItem key={slugify(route.label)}>
                     <SidebarMenuButton
                       asChild
+                      onClick={() => setOpen(false)}
                       isActive={pathname === route.href}
                     >
                       <Link href={route.href}>
@@ -124,6 +119,7 @@ export function SidebarLayout({ children }: { children: React.ReactNode }) {
                   <SidebarMenuItem key={slugify(route.label)}>
                     <SidebarMenuButton
                       asChild
+                      onClick={() => setOpen(false)}
                       isActive={pathname === route.href}
                     >
                       <Link href={route.href}>
@@ -142,6 +138,7 @@ export function SidebarLayout({ children }: { children: React.ReactNode }) {
                   <SidebarMenuItem key={slugify(route.label)}>
                     <SidebarMenuButton
                       asChild
+                      onClick={() => setOpen(false)}
                       isActive={pathname === route.href}
                     >
                       <Link

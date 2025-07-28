@@ -5,7 +5,7 @@ import { Header } from "@/components/header";
 import { GeistMono } from "geist/font/mono";
 
 export const metadata: Metadata = {
-  title: "mcomponents",
+  title: "Mobile Components",
   description: "A modern component library",
 };
 

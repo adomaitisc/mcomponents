@@ -7,8 +7,13 @@ import { CodeSection } from "@/components/code-section";
 import { Subtitle } from "@/components/subtitle";
 import { Label } from "./label";
 import { Input } from "../input/input";
+import path from "path";
+import fs from "fs";
 
 export default function LabelPage() {
+  const filePath = path.join(process.cwd(), "public/raw/label.tsx");
+  const code = fs.readFileSync(filePath, "utf-8");
+
   return (
     <Sandbox
       component={
@@ -35,6 +40,9 @@ export default function LabelPage() {
         required field indicators.
       </Paragraph>
 
+      <Subtitle>Implementation</Subtitle>
+      <CodeSection>{code}</CodeSection>
+      <Subtitle>Usage</Subtitle>
       <CodeSection>
         {`<div className="space-y-2 w-full">
   <Label htmlFor="name" required>
