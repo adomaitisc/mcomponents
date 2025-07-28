@@ -1,5 +1,3 @@
-"use client";
-
 import { Paragraph } from "@/components/paragraph";
 import { Sandbox } from "@/components/sandbox";
 import { Title } from "@/components/title";
@@ -16,8 +14,13 @@ import {
 import { Label } from "../label/label";
 import { Input } from "../input/input";
 import { Button } from "../button/button";
+import path from "path";
+import fs from "fs";
 
 export default function CardPage() {
+  const filePath = path.join(process.cwd(), "public/raw/card.tsx");
+  const code = fs.readFileSync(filePath, "utf-8");
+
   return (
     <Sandbox
       component={
@@ -76,6 +79,9 @@ export default function CardPage() {
         optimized for mobile.
       </Paragraph>
 
+      <Subtitle>Implementation</Subtitle>
+      <CodeSection>{code}</CodeSection>
+      <Subtitle>Usage</Subtitle>
       <CodeSection>
         {`<Card className="w-full max-w-sm">
   <CardHeader>

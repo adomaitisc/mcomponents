@@ -22,7 +22,11 @@ export function Sandbox({
 
   return (
     <>
-      <div className="flex-1 lg:absolute left-0 w-full sm:max-w-screen md:max-w-3xl lg:max-w-1/2 mx-auto space-y-3 lg:space-y-6 py-20 lg:py-32 px-4 lg:px-12">
+      <div
+        className={`flex-1 lg:absolute left-0 w-full sm:max-w-screen lg:max-w-1/2 mx-auto space-y-3 lg:space-y-6 py-20 lg:py-32 px-4 lg:px-12 ${
+          component ? "md:max-w-5xl" : "lg:max-w-3xl"
+        }`}
+      >
         {children}
       </div>
       {isPhone ? (

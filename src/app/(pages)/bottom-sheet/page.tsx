@@ -1,13 +1,16 @@
-"use client";
-
 import { Paragraph } from "@/components/paragraph";
 import { Sandbox } from "@/components/sandbox";
 import { Title } from "@/components/title";
 
 import { CodeSection } from "@/components/code-section";
 import BottomSheet from "./bottom-sheet";
+import path from "path";
+import fs from "fs";
 
 export default function CarouselPage() {
+  const filePath = path.join(process.cwd(), "public/raw/bottom-sheet.tsx");
+  const code = fs.readFileSync(filePath, "utf-8");
+
   return (
     <Sandbox>
       <Title
@@ -23,15 +26,8 @@ export default function CarouselPage() {
         diminshes the screen real estate but also brings focus to a given
         action/consequence.
       </Paragraph>
-      <CodeSection>
-        {`<div className="w-screen py-12">
-  <Toaster mobileOffset={{ bottom: 60 }} />
-  <button onClick={() => toast.info("This is an info Toast")}>
-    Click me!
-  </button>
-</div>`}
-      </CodeSection>
       <BottomSheet />
+      <CodeSection>{code}</CodeSection>
     </Sandbox>
   );
 }

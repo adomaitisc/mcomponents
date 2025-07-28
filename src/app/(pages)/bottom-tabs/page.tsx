@@ -4,6 +4,9 @@ import { Title } from "@/components/title";
 import { Tab, TabBar, TabContainer, TabProvider } from "./bottom-tabs";
 import { Subtitle } from "@/components/subtitle";
 import { HomeIcon, SearchIcon, UserIcon } from "lucide-react";
+import path from "path";
+import fs from "fs";
+import { CodeSection } from "@/components/code-section";
 
 const tabs = [
   { id: "home", label: "Home", icon: <HomeIcon className="size-5" /> },
@@ -12,27 +15,11 @@ const tabs = [
 ];
 
 export default function BottomTabsPage() {
+  const filePath = path.join(process.cwd(), "public/raw/bottom-tabs.tsx");
+  const code = fs.readFileSync(filePath, "utf-8");
+
   return (
-    <Sandbox
-      component={
-        <div className="w-full h-full relative">
-          <TabProvider>
-            <TabBar tabs={tabs} />
-            <TabContainer className="grid place-items-center">
-              <Tab id="home">
-                <Subtitle>Home</Subtitle>
-              </Tab>
-              <Tab id="search">
-                <Subtitle>Search</Subtitle>
-              </Tab>
-              <Tab id="profile">
-                <Subtitle>Profile</Subtitle>
-              </Tab>
-            </TabContainer>
-          </TabProvider>
-        </div>
-      }
-    >
+    <Sandbox>
       <Title
         links={[
           {
@@ -49,6 +36,31 @@ export default function BottomTabsPage() {
         They are typically located at the bottom of the screen and are used to
         navigate between different sections of an application.
       </Paragraph>
+      <TabProvider defaultTab="home">
+        <TabBar tabs={tabs} />
+        <TabContainer className="grid place-items-center">
+          <Tab id="home">
+            <Subtitle>Home</Subtitle>
+          </Tab>
+          <Tab id="search">
+            <Subtitle>Search</Subtitle>
+          </Tab>
+          <Tab id="profile">
+            <Subtitle>Profile</Subtitle>
+          </Tab>
+        </TabContainer>
+      </TabProvider>
+      <Subtitle>Implementation</Subtitle>
+      <CodeSection>{code}</CodeSection>
+      <Subtitle>Usage</Subtitle>
+      <CodeSection>{`<TabProvider defaultTab="home">
+  <TabBar tabs={tabs} />
+  <TabContainer className="grid place-items-center">
+    <Tab id="home">
+      <Subtitle>Home</Subtitle>
+    </Tab>
+  </TabContainer>
+</TabProvider>`}</CodeSection>
     </Sandbox>
   );
 }

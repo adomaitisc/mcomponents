@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "../button/button";
 import {
   DropdownMenu,
@@ -20,8 +18,13 @@ import { Sandbox } from "@/components/sandbox";
 import { Title } from "@/components/title";
 import { CodeSection } from "@/components/code-section";
 import { Subtitle } from "@/components/subtitle";
+import path from "path";
+import fs from "fs";
 
 export default function DropdownMenuPage() {
+  const filePath = path.join(process.cwd(), "public/raw/dropdown-menu.tsx");
+  const code = fs.readFileSync(filePath, "utf-8");
+
   return (
     <Sandbox
       component={
@@ -74,7 +77,9 @@ export default function DropdownMenuPage() {
         A fully accessible and extensible dropdown menu built with Radix UI
         primitives and styled for mobile-first usage.
       </Paragraph>
-
+      <Subtitle>Implementation</Subtitle>
+      <CodeSection>{code}</CodeSection>
+      <Subtitle>Usage</Subtitle>
       <CodeSection>
         {`<DropdownMenu>
   <DropdownMenuTrigger asChild>

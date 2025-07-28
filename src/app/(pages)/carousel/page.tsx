@@ -4,10 +4,15 @@ import { Title } from "@/components/title";
 import Carousel from "./carousel";
 import { CodeSection } from "@/components/code-section";
 import { Subtitle } from "@/components/subtitle";
+import path from "path";
+import fs from "fs";
 
 const images = Array.from({ length: 10 }, () => `/placeholder.svg`);
 
 export default function CarouselPage() {
+  const filePath = path.join(process.cwd(), "public/raw/carousel.tsx");
+  const code = fs.readFileSync(filePath, "utf-8");
+
   return (
     <Sandbox
       component={
@@ -22,6 +27,9 @@ export default function CarouselPage() {
         Inspired by the Instagram carousel, this component is a simple way to
         create a carousel of images.
       </Paragraph>
+      <Subtitle>Implementation</Subtitle>
+      <CodeSection>{code}</CodeSection>
+      <Subtitle>Usage</Subtitle>
       <CodeSection>
         {`<div className="w-screen py-12">
   <Subtitle className="py-4">Carousel Example</Subtitle>

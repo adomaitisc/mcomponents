@@ -92,5 +92,5 @@ export const TabContainer: React.FC<TabContainerProps> = ({
   children,
   className,
 }) => {
-  return <div className={cn("py-8", className)}>{children}</div>;
+  return <div className={cn("pb-16", className)}>{children}</div>;
 };
